@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "adding remote"
+git remote add origin git@github.com:WassimKallel/pi_mobile.git
+sleep 1.5
+echo "setting url"
+git remote set-url origin git@github.com:WassimKallel/pi_mobile.git
+sleep 1.5
+echo "fetching all"
+git fetch --all
+echo "done"
