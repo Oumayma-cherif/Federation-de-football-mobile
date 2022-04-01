@@ -17,10 +17,13 @@ import java.util.ArrayList;
 import com.codename1.io.Log;
 import com.codename1.io.NetworkManager;
 import com.codename1.io.rest.Rest;
+import com.codename1.ui.Component;
 import com.codename1.ui.Display;
 import com.codename1.ui.Font;
 import com.codename1.ui.FontImage;
+import com.codename1.ui.Label;
 import com.codename1.ui.TextField;
+import com.codename1.ui.layouts.BorderLayout;
 import com.mycompany.myapp.utils.Statics;
 import rest.file.uploader.tn.FileUploader;
 
@@ -34,23 +37,22 @@ public class addsponsor extends Form {
     private String fileNameInServer = "";
 
     public addsponsor(Form previous) {
-        
+
         setTitle("Add a new sponsor");
         setLayout(BoxLayout.y());
 
-        TextField NomS = new TextField("", "nomS");
+        TextField nomS = new TextField("", "nomS");
         TextField logoS = new TextField("", "logoS");
         Button btnValider = new Button("Add sponsor");
 
-          Font materialFontAjout = FontImage.getMaterialDesignFont();
+        Font materialFontAjout = FontImage.getMaterialDesignFont();
         int size = Display.getInstance().convertToPixels(5, true);
         materialFontAjout = materialFontAjout.derive(size, Font.STYLE_PLAIN);
         Button Delete = new Button("Supprimer");
         Delete.setIcon(FontImage.create("\uea4c", Delete.getUnselectedStyle(), materialFontAjout));
         //MyApplication
-        
-        
-          Button imgBtn = new Button("parcourir");
+
+        Button imgBtn = new Button("parcourir");
         //addStringValue("", imgBtn);
 
         imgBtn.addActionListener(new ActionListener() {
@@ -87,21 +89,20 @@ public class addsponsor extends Form {
 
             }
         });
-        
-       }
-        
-       /*
-        
-    btnValider.addActionListener((e) -> {
-            //serviceclub c = new serviceclub();
-            club r = new club(Nomc.getText().toString(), fileNameInServer, descr.getText(), President.getText().toString());
-            System.out.println("data evenement ==" + r);
-            serviceclub.getInstance().addTournoi(r);
 
-        });
-        addAll(Nomc, imgBtn, descr, President, btnValider);
+        btnValider.addActionListener(
+                (e) -> {
+                    //serviceclub c = new serviceclub();
+                    sponsor c = new sponsor(nomS.getText(), fileNameInServer);
+                    System.out.println("data evenement ==" + c);
+                    servicesponsor.getInstance().addSponsor(c);
 
-        getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e -> new Listclub(this).show());
+                }
+        );
+        addAll(nomS, imgBtn, btnValider);
+
+        getToolbar()
+                .addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e -> new Listsponsor(this).show());
 
     }
 
@@ -110,11 +111,3 @@ public class addsponsor extends Form {
                 .add(BorderLayout.CENTER, v));
     }
 }
-
-        addAll(NomS, logoS, btnValider);
-        getToolbar().addMaterialCommandToLeftBar("", FontImage.MATERIAL_ARROW_BACK, e -> previous.showBack());
-
-    }
-}
-*/
-

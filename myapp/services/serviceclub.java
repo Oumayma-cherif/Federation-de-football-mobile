@@ -102,11 +102,7 @@ public class serviceclub {
         } catch (IOException ex) {
 
         }
-        /*
-            A ce niveau on a pu récupérer une liste des tâches à partir
-        de la base de données à travers un service web
         
-         */
         return club;
     }
 

@@ -32,8 +32,6 @@ public class Listclub extends Form {
         serviceclub es = new serviceclub();
         ArrayList<club> list = es.getAllclub();
 
-        
-
             Button ajoutclub = new Button("Ajouter");
 
             ajoutclub.addPointerPressedListener(l -> {

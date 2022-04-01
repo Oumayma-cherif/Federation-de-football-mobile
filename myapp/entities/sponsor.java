@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package com.mycompany.myapp.entities;
 
 import java.util.Objects;
@@ -16,7 +11,6 @@ public class sponsor {
     private int id;
     public String nomS;
     private String logoS;
-    
 
     public sponsor() {
     }
@@ -25,8 +19,13 @@ public class sponsor {
         this.id = id;
     }
 
-    public sponsor(int id, String nomS, String logoS ) {
+    public sponsor(int id, String nomS, String logoS) {
         this.id = id;
+        this.nomS = nomS;
+        this.logoS = logoS;
+    }
+
+    public sponsor(String nomS, String logoS) {
         this.nomS = nomS;
         this.logoS = logoS;
     }
@@ -55,11 +54,9 @@ public class sponsor {
         this.logoS = logoS;
     }
 
-   
-
     @Override
     public String toString() {
-        return "serviceclub {" + "id=" + id + ", nomS=" + nomS + ", logoS=" + logoS +  '}';
+        return "serviceclub {" + "id=" + id + ", nomS=" + nomS + ", logoS=" + logoS + '}';
     }
 
 }
